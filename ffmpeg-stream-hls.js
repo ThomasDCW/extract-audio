@@ -20,17 +20,17 @@ rl.question(questionFormat, (answerIndex) => {
   const selectedFormatIndex = parseInt(answerIndex) - 1;
   if (selectedFormatIndex >= 0 && selectedFormatIndex < formatsAudio.length) {
     const selectedFormat = formatsAudio[selectedFormatIndex];
-    console.log("👷 Extraction audio en cours...");
+    console.log("🔄  Extraction audio en cours...");
     console.log("🛑 Ctrl + C pour arrêter l'extraction.");
-    extraireAudio(selectedFormat);
+    extractAudio(selectedFormat);
   } else {
     console.error("❌ Format audio invalide.");
     rl.close();
   }
 });
 
-function extraireAudio(format) {
-  const outputAudioPath = `./audios/ffmpeg-stream/audio_${Date.now()}.${format}`;
+function extractAudio(format) {
+  const outputAudioPath = `./audios/ffmpeg-stream-hls/audio_${Date.now()}.${format}`;
   ffmpeg(liveVideoURL)
     .output(outputAudioPath)
     .noVideo()

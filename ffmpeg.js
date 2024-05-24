@@ -40,7 +40,7 @@ rl.question(questionFormat, (answerIndex) => {
         rl.close();
       });
   } else {
-    console.error("Format audio invalide.");
+    console.error("❌ Format audio invalide.");
     rl.close();
   }
 });
